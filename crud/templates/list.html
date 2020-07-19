@@ -1,0 +1,23 @@
+{% extends 'clientbase.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+{% for demo in demolist %}
+<div class="card" style="width: 18rem;">
+  <img src="{{demo.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{demo.name}}</h5>
+    <p class="card-text">{{demo.description|truncatewords:'10'}}</p>
+    <a href="{% url 'crudapp:clientdemodetail' demo.id %}" class="btn btn-primary">Read more</a>
+  </div>
+</div>
+
+<!-- <p><a href="{% url 'crudapp:clientdemodetail' demo.id %}"> {{demo.name}} </a></p>
+<p><a href="{% url 'crudapp:demodelete' demo.id %}">Delete</a></p> -->
+
+{% endfor %}
+
+{% endblock %}

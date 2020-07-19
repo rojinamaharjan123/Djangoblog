@@ -1,0 +1,14 @@
+{% extends 'clientbase.html' %}
+{% load static %}
+{% block content %}
+	<h3>This is demo page detail.</h3>
+	<p>Name: {{demodetail.name}}</p>
+	{% if demodetail.image %}
+	<p>Image: <img src="{{demodetail.image.url}}" width="50" height="50"></p>
+	{% else %}
+	No image to display
+	{% endif %}
+	<p>Description: {{demodetail.description}}</p>
+
+	<a href="{% url 'crudapp:demoupdate' demodetail.id %}">Update</a>
+{% endblock %}
